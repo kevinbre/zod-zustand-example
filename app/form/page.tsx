@@ -45,7 +45,7 @@ export default function Form() {
           <Input name="firstName" control={control} label="Name" />
           <Input name="lastName" control={control} label="Lastname" />
 
-          <button className="px-2 py-1 bg-purple-700 text-white">Enviar</button>
+          <button className="px-2 py-1 bg-purple-700 text-white">Add user</button>
         </form>
       </main>
     </>
