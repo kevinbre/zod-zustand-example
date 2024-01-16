@@ -5,13 +5,16 @@ import { useForm } from "react-hook-form";
 import { Input } from "../components/input";
 import { FormValues, formSchema } from "../schemas/form-schema";
 import { useItemsStore } from "../store/items-store";
-import Head from "next/head";
 
 export default function Form() {
   const { users, addUser } = useItemsStore();
 
   const { handleSubmit, control, reset } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: ""
+    }
   });
 
   return (
@@ -42,11 +45,6 @@ export default function Form() {
           <Input name="firstName" control={control} label="Name" />
           <Input name="lastName" control={control} label="Lastname" />
 
-          {/* <label htmlFor="" className="flex flex-col text-white">
-          <span>Lastname</span>
-          <input {...register("lastName")} className="text-black" />
-          <h2 className="text-red-500 text-xs">{errors?.lastName?.message}</h2>
-        </label> */}
           <button className="px-2 py-1 bg-purple-700 text-white">Enviar</button>
         </form>
       </main>
